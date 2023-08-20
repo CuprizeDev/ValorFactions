@@ -9,7 +9,6 @@ public enum Permission {
      * @author FactionsUUID Team - Modified By CmdrKittens
      */
 
-
     MANAGE_SAFE_ZONE("managesafezone"),
     MANAGE_WAR_ZONE("managewarzone"),
     OWNERSHIP_BYPASS("ownershipbypass"),

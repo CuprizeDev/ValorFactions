@@ -12,7 +12,7 @@ public class Aliases {
      */
 
     public static ArrayList<String> allyfwarp = new ArrayList<>(Arrays.asList("allywarp", "allyfwarp", "warpally", "awarp"));
-
+    public static ArrayList<String> shield = new ArrayList<>(Arrays.asList("shield", "shields"));
     public static ArrayList<String> missions_missions = new ArrayList<>(Arrays.asList("missions", "mission", "objectives", "objective"));
     public static ArrayList<String> friendlyFire = new ArrayList<>(Arrays.asList("friendlyfire", "ff"));
     public static ArrayList<String> notifications = new ArrayList<>(Arrays.asList("notifications", "notis"));
@@ -80,7 +80,8 @@ public class Aliases {
     public static ArrayList<String> coleader = new ArrayList<>(Arrays.asList("coleader", "setcoleader", "co", "setco"));
     public static ArrayList<String> config = new ArrayList<>(Collections.singletonList("config"));
     public static ArrayList<String> convert = new ArrayList<>(Collections.singletonList("convert"));
-    public static ArrayList<String> coords = new ArrayList<>(Arrays.asList("coords", "coord"));
+    public static ArrayList<String> coords = new ArrayList<>(Arrays.asList("coords", "coord", "tl", "location"));
+    public static ArrayList<String> location = new ArrayList<>(Arrays.asList("tl", "location"));
     public static ArrayList<String> create = new ArrayList<>(Collections.singletonList("create"));
     public static ArrayList<String> debug = new ArrayList<>(Collections.singletonList("debug"));
     public static ArrayList<String> deinvite = new ArrayList<>(Arrays.asList("deinvite", "deinv"));

@@ -153,3 +153,4 @@ factions:
   warp: WARP #Ability to use F Warp
   wild: WILD #Ability to use F Wild
   chest: CHEST #Ability to use F Chest
+  shield: SHIELD #Ability to use F Shield

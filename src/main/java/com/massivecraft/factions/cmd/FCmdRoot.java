@@ -18,6 +18,7 @@ import com.massivecraft.factions.cmd.relational.*;
 import com.massivecraft.factions.cmd.reserve.CmdReserve;
 import com.massivecraft.factions.cmd.roles.CmdDemote;
 import com.massivecraft.factions.cmd.roles.CmdPromote;
+import com.massivecraft.factions.cmd.shield.CmdShield;
 import com.massivecraft.factions.cmd.tnt.CmdSetTnt;
 import com.massivecraft.factions.cmd.tnt.CmdTnt;
 import com.massivecraft.factions.cmd.tnt.CmdTntFill;
@@ -132,6 +133,7 @@ public class FCmdRoot extends FCommand implements CommandExecutor {
     public CmdKillHolograms cmdKillHolograms = new CmdKillHolograms();
     //public CmdInspect cmdInspect = new CmdInspect();
     public CmdCoords cmdCoords = new CmdCoords();
+    public CmdShield cmdShield = new CmdShield();
     public CmdShowClaims cmdShowClaims = new CmdShowClaims();
     public CmdLowPower cmdLowPower = new CmdLowPower();
     public CmdTntFill cmdTntFill = new CmdTntFill();
@@ -206,6 +208,7 @@ public class FCmdRoot extends FCommand implements CommandExecutor {
         this.setHelpShort("The faction base command");
         this.helpLong.add(TextUtil.parseTags("<i>This command contains all faction stuff."));
 
+        this.addSubCommand(this.cmdShield);
         this.addSubCommand(this.cmdAllyFWarp);
         this.addSubCommand(this.cmdAdmin);
         this.addSubCommand(this.cmdAutoClaim);

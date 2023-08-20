@@ -1,0 +1,49 @@
+############################################################
+# +------------------------------------------------------+ #
+# |                  Faction Shield                      | #
+# +------------------------------------------------------+ #
+############################################################
+menu-gui:
+  name: '&8Faction Shield Menu'
+  rows: 3
+  statusitem:
+    type: CLOCK
+    name: '&4&lShield Status'
+    lore:
+      - ''
+      - '&7Status: %status%'
+      - '&7Time: &4%start% *e-> &4%finish%'
+    slot: 11
+  shielditem:
+    type: BANNER
+    name: '&4&lEdit Shield'
+    lore:
+      - ''
+      - '&7Edit your faction shield!'
+    slot: 15
+  dummyitem:
+    type: BLACK_STAINED_GLASS_PANE
+    name: ''
+    lore:
+      - ' '
+    slots:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26

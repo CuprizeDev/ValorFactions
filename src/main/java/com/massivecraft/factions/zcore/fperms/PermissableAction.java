@@ -49,6 +49,7 @@ public enum PermissableAction {
     CHEST("chest"),
     AUDIT("audit"),
     CHECK("check"),
+    SHIELD("shield"),
     SPAWNER("spawner");
 
     private String name;
