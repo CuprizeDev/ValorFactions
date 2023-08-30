@@ -954,7 +954,10 @@ public abstract class MemoryFPlayer implements FPlayer {
                 return false;
             }
 
+            targetFaction.getRaidClaims().remove(flocation.toFastChunk());
+
             Board.getInstance().removeAt(flocation);
+
 
             targetFaction.msg(TL.COMMAND_UNCLAIM_UNCLAIMED, describeTo(targetFaction, true));
             msg(TL.COMMAND_UNCLAIM_UNCLAIMS);
@@ -999,8 +1002,20 @@ public abstract class MemoryFPlayer implements FPlayer {
             }
         }
 
+        if (Conf.userRaidClaimSystem) {
+            FastChunk fastChunk = new FastChunk(flocation);
+            Set<FastChunk> raidClaims = getFaction().getRaidClaims();
+            if (raidClaims != null && raidClaims.contains(fastChunk)) {
+                raidClaims.remove(fastChunk);
+                msg(TL.COMMAND_RAIDCHUNK_UNCLAIMED);
+                getFaction().setRaidClaims(raidClaims);
+                return false;
+            }
+        }
+
         LandUnclaimEvent unclaimEvent = new LandUnclaimEvent(flocation, targetFaction, this);
         Bukkit.getServer().getPluginManager().callEvent(unclaimEvent);
+
         if (unclaimEvent.isCancelled()) {
             return false;
         }
