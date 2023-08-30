@@ -21,11 +21,13 @@ public class FactionData {
     private final String factionID;
     private final String factionTag;
     private Map<String, Object> map;
+    private final int shield;
     private boolean saving;
 
     public FactionData(Faction faction) {
         this.factionTag = faction.getTag();
         this.factionID = faction.getId();
+        this.shield = faction.getShield();
         this.map = new HashMap<>();
         this.saving = false;
     }
@@ -124,6 +126,7 @@ public class FactionData {
         return factionID;
     }
 
+    public int getShield() { return getShield(); }
     public String getFactionTag() {
         return factionTag;
     }
