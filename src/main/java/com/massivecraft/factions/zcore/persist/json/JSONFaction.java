@@ -15,4 +15,13 @@ public class JSONFaction extends MemoryFaction {
         super(id);
     }
 
+    @Override
+    public int getRaidClaimsCount() {
+        return this.getRaidClaimCount();
+    }
+
+    @Override
+    public void setShieldDate(long time) {
+        this.lastSetShieldTime = time;
+    }
 }
