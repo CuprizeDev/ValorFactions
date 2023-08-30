@@ -4,8 +4,7 @@ import com.massivecraft.factions.zcore.persist.json.JSONBoard;
 import net.kyori.adventure.text.Component;
 import org.bukkit.World;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 public abstract class Board {
