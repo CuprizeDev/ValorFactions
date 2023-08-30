@@ -151,7 +151,7 @@ public class FactionShieldSelectorFrame extends SaberGUI {
                     faction.setShield(finalTimeInteger);
                     player.sendMessage(TL.COMMAND_SHIELD_SET.toString()
                             .replace("%end%", timeUtil.calculateEndTime(finalTimeInteger, FactionsPlugin.getInstance().getConfig().getInt("shield.shield-length")))
-                            .replace("%start%", timeUtil.calculateStartTime(i)));
+                            .replace("%start%", timeUtil.calculateStartTime(finalTimeInteger)));
                 }));
                 timeInteger++;
             }
