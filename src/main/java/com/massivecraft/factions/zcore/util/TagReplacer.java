@@ -57,6 +57,7 @@ public enum TagReplacer {
     FACTION(TagType.FACTION, "{faction}"),
     PLAYER_NAME(TagType.FACTION, "{name}"),
     HOME_WORLD(TagType.FACTION, "{world}"),
+    SHIELD(TagType.FACTION, "{shield"),
     RAIDABLE(TagType.FACTION, "{raidable}"),
     RAW_TAG(TagType.FACTION, "{faction-tag}"),
     PEACEFUL(TagType.FACTION, "{peaceful}"),
@@ -79,7 +80,6 @@ public enum TagReplacer {
     FACTION_BANCOUNT(TagType.FACTION, "{faction-bancount}"),
     FACTION_STRIKES(TagType.FACTION, "{strikes}"),
     FACTION_POINTS(TagType.FACTION, "{faction-points}"),
-    SHIELD(TagType.FACTION, "{shield}"),
 
 
     /**
@@ -207,6 +207,8 @@ public enum TagReplacer {
             }
         }
 
+        TimeFormatUtil timeUtil = new TimeFormatUtil();
+
         switch (this) {
             case DESCRIPTION:
                 return fac.getDescription();
@@ -246,7 +248,11 @@ public enum TagReplacer {
             case HOME_Z:
                 return fac.hasHome() ? String.valueOf(fac.getHome().getBlockZ()) : minimal ? null : "{ig}";
             case SHIELD:
-                return FactionsPlugin.getInstance().getShieldStatMap().get(fac);
+                return timeUtil.getStatus(
+                        timeUtil.calculateStartTimeFormat(fac.getShield()),
+                        timeUtil.calculateEndTimeFormat(fac.getShield(), FactionsPlugin.getInstance().getConfig().getInt("shield.shield-length")),
+                        timeUtil.getCurrentTime(),
+                        timeUtil.deserializeLocalDateTime(fac.getSetShieldDate()));
             case LAND_VALUE:
                 return Econ.shouldBeUsed() ? Econ.moneyString(Econ.calculateTotalLandValue(fac.getLandRounded())) : minimal ? null : TL.ECON_OFF.format("value");
             case LAND_REFUND:
