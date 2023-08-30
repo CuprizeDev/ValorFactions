@@ -91,6 +91,7 @@ fperm-gui:
       spawner: MOB_SPAWNER
       home: ENDER_EYE
       shield: SHIELD
+      raidclaim: CREEPER_SPAWN_EGG
     Descriptions:
       build: '&7Grants users access to build.'
       destroy: '&7Grant users access to destroy.'
@@ -121,7 +122,8 @@ fperm-gui:
       drain: '&7Grant users access to use /f drain.'
       spawner: '&7Grant users access to manage spawners.'
       home: '&7Grant users access to use /f home.'
-      shield: '&7Grants users access to use /f shield'
+      shield: '&7Grants users access to use /f shield.'
+      raidclaim: '&7Grants users access to use /f raidclaim.'
     slots:
       # Uses same format as above to inform the player of clicked relation
       relation: 4
@@ -157,7 +159,8 @@ fperm-gui:
       spawner: 38
       drain: 49
       home: 48
-      shield: 39
+      shield: 37
+      raidclaim: 43
     # {action} Action name eg: Setwarp, Kick
     # {action-access} Access name eg: Allow, Deny
     # {action-access-color} Access color eg: Allow;GREEN
