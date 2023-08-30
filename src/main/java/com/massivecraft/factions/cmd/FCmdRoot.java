@@ -134,6 +134,7 @@ public class FCmdRoot extends FCommand implements CommandExecutor {
     //public CmdInspect cmdInspect = new CmdInspect();
     public CmdCoords cmdCoords = new CmdCoords();
     public CmdShield cmdShield = new CmdShield();
+    public CmdRaidClaim cmdRaidClaim = new CmdRaidClaim();
     public CmdShowClaims cmdShowClaims = new CmdShowClaims();
     public CmdLowPower cmdLowPower = new CmdLowPower();
     public CmdTntFill cmdTntFill = new CmdTntFill();
@@ -318,6 +319,7 @@ public class FCmdRoot extends FCommand implements CommandExecutor {
         this.addSubCommand(this.cmdSetRelation);
         this.addSubCommand(this.cmdSetDiscord);
         this.addSubCommand(this.cmdSeeDiscord);
+        this.addSubCommand(this.cmdRaidClaim);
         addVariableCommands();
         if (CommodoreProvider.isSupported()) brigadierManager.build();
     }
