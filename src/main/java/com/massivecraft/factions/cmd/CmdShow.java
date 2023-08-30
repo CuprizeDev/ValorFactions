@@ -33,6 +33,7 @@ public class CmdShow extends FCommand {
         defaults.add("&4* &cFaction Strikes: &f{strikes}");
         defaults.add("&4* &cFaction Points: &f{faction-points}");
         defaults.add("&4* &cFounded: &f{create-date}");
+        defaults.add("&4* &cShield: {shield}");
         defaults.add("&4* &cBalance: &f{faction-balance}");
         defaults.add("&4* &cAllies: &a{allies-list}");
         defaults.add("&4* &cEnemies: &4{enemies-list}");
