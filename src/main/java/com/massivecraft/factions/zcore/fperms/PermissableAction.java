@@ -50,6 +50,7 @@ public enum PermissableAction {
     AUDIT("audit"),
     CHECK("check"),
     SHIELD("shield"),
+    RAID_CLAIM("raidclaim"),
     SPAWNER("spawner");
 
     private String name;

@@ -154,3 +154,4 @@ factions:
   wild: WILD #Ability to use F Wild
   chest: CHEST #Ability to use F Chest
   shield: SHIELD #Ability to use F Shield
+  raidclaim: CREEPER_SPAWN_EGG #Ability to use F Shield

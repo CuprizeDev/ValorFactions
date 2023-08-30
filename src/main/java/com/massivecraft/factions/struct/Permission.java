@@ -127,6 +127,7 @@ public enum Permission {
     SETSTRIKES("setstrikes"),
     SHOW("show"),
     SHIELD("shield"),
+    RAID_CLAIM("raidclaim"),
     SPAWNER_CHUNKS("spawnerchunks"),
     STATUS("status"),
     STEALTH("stealth"),
