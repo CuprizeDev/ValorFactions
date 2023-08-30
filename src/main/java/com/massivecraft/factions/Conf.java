@@ -149,6 +149,12 @@ public class Conf {
     public static ChatColor spawnerChunkColor = ChatColor.BLUE;
     public static String spawnerChunkString = "Spawner Chunk";
 
+    //RaidChunks
+    public static boolean userRaidClaimSystem = false;
+    public static int allowedRaidClaims = 2;
+    public static ChatColor raidClaimColor = ChatColor.DARK_RED;
+    public static String raidClaimString = "Raid Claim";
+
     // server logging options
     public static boolean logFactionCreate = true;
     public static boolean logFactionDisband = true;
