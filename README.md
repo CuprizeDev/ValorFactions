@@ -1,12 +1,14 @@
-# SaberFactions
+# ValorFactions
 
-![Downloads](https://img.shields.io/github/downloads/saberllc/saber-factions/total.svg) [![CodeFactor](https://www.codefactor.io/repository/github/driftay/saber-factions/badge)](https://www.codefactor.io/repository/github/driftay/saber-factions) [![License](https://img.shields.io/badge/license-GNU%20General%20Public%20License%20v3.0-brightgreen)](https://github.com/SaberLLC/Saber-Factions/blob/1.6.x/LICENSE) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/SaberLLC/Saber-Factions) [![](https://jitpack.io/v/SaberLLC/Saber-Factions.svg)](https://jitpack.io/#SaberLLC/Saber-Factions)
+ValorFactions is a fork of SaberFactions adding some new features.
 
+## Valor Features
+New features added in the fork.
+* Faction Shield System - Faction Shield enables a faction to have no explosions go off in their territory for a set amount of time!
+* Raid Claim System - Raid claims are claims that allow TNT to blow up in them even when your shield is active!
 
-SaberFactions is an exotic, performance optimized, and feature rich factions plugin that focuses on not only making the player experience as great as possibly but maintaining this aspect with the cost of NOTHING! We strive to continue development for SaberFactions as the factions community is strongly growing and seeking new players every day. 
-
-## Some Exciting Features
-Some of our features include the following 
+## Saber Features
+Features added originally by Driftay
 
 * Factions Grace Period - Deny Raiding Between Factions Temporarily
 * Factions Alt System - Allow Alts To Join a Faction and AFK Spawners/Print in Sand While Your Players Enjoy The Raid!
@@ -22,30 +24,11 @@ Some of our features include the following
 * Factions Check System - An automated check system that alerts players when to check walls/buffers!
 * Faction Reserves - A system designed to reserve a specific faction name for a specific player!
 
-## Dependency With Maven
-```	
-	<repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-	</repositories>
 
-	<dependency>
-	    <groupId>com.github.SaberLLC</groupId>
-	    <artifactId>Saber-Factions</artifactId>
-	    <version>1.6.x-SNAPSHOT</version>
-	</dependency>
-```
-## Moving Forward
+## Future
+I plan on fixing any bugs that are found and potentially adding the following features
 
-Moving forward we plan to take all suggestions into consideration, as they come from our community. 
-We Plan on Releasing the latest and greatest factions/skyblock/prison plugins minecraft has to offer and wont settle for anything less
-
-## Support
-Have a problem, question, or concer? We encourage our community to join and express any inquiry you may have
-https://discord.gg/saber
-
-Look forward to a bright future and a journey with all of you!
-
-Sincerely, SaberLLC Support Team!
+* TNTUnfill System - When you fail a raid you can get all your tnt back in your territory with /f tntunfill
+* Faction Bundle System - A system that rewards factions for becoming bigger and better!
+* Faction Roster System - A roster system that limits the amount of people being rotated in a faction for a set amount of time.
+* Faction Sandbot System - Sandbots place sand for your cannons and walls for a set amount of money.
