@@ -12,7 +12,6 @@ import com.massivecraft.factions.util.LazyLocation;
 import com.massivecraft.factions.zcore.fperms.Access;
 import com.massivecraft.factions.zcore.fperms.Permissable;
 import com.massivecraft.factions.zcore.fperms.PermissableAction;
-import com.massivecraft.factions.zcore.frame.fupgrades.UpgradeManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -81,6 +80,19 @@ public interface Faction extends EconomyParticipator {
     int getAllowedSpawnerChunks();
 
     void setAllowedSpawnerChunks(int chunks);
+
+    Set<FastChunk> getRaidClaims();
+
+    void setRaidClaims(Set<FastChunk> fastChunks);
+
+    void clearRaidClaims();
+
+    int getRaidClaimsCount();
+
+    int getAllowedRaidClaims();
+
+    void setAllowedRaidClaims(int chunks);
+
 
     boolean isProtected();
 
@@ -440,4 +452,13 @@ public interface Faction extends EconomyParticipator {
     // -------------------------------
     // Shields
     // -------------------------------
+
+    int getShield();
+
+    void setShield(int time);
+
+    long getSetShieldDate();
+
+    void setShieldDate(long time);
+
 }
