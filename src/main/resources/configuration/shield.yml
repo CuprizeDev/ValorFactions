@@ -11,10 +11,11 @@ menu-gui:
     name: '&4&lShield Status'
     lore:
       - ''
+      - '&7Server Time: &4%time%'
       - '&7Status: %status%'
-      - '&7Time: &4%start% *e-> &4%finish%'
+      - '&7Time: &4%start% &7-> &4%end%'
     slot: 11
-  shielditem:
+  controlitem:
     type: BANNER
     name: '&4&lEdit Shield'
     lore:
@@ -47,3 +48,58 @@ menu-gui:
       - 24
       - 25
       - 26
+selector-gui:
+  name: '&8Faction Shield Selector'
+  rows: 6
+  shielditem:
+    type: RED_STAINED_GLASS_PANE
+    name: '&4%start%-%end%'
+    lore:
+      - ''
+      - '&7Click to set your shield to this time!'
+  infoitem:
+    type: PAPER
+    name: '&4&lInformation'
+    lore:
+      - ''
+      - '&7Server Time: &4%time%'
+      - '&7Status: &4%status%'
+      - '&7Time: &4%start% &7-> &4%end%'
+    slot: 49
+  currentshielditem:
+    type: GREEN_STAINED_GLASS_PANE
+    name: '&a%start%-%end%'
+    lore:
+      - ''
+      - '&7This is what your shield is currently set too!'
+  dummyitem:
+    type: BLACK_STAINED_GLASS_PANE
+    name: ' '
+    lore:
+      - ' '
+    slots:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 17
+      - 18
+      - 26
+      - 27
+      - 35
+      - 36
+      - 44
+      - 45
+      - 46
+      - 47
+      - 48
+      - 50
+      - 51
+      - 52
+      - 53
