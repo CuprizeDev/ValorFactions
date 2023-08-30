@@ -38,6 +38,7 @@ public class DefaultPermissions {
     public boolean drain;
     public boolean spawner;
     public boolean shield;
+    public boolean raidClaim;
 
     public DefaultPermissions() {
     }
@@ -73,6 +74,7 @@ public class DefaultPermissions {
         this.drain = def;
         this.spawner = def;
         this.shield = def;
+        this.raidClaim = def;
     }
 
     public DefaultPermissions(boolean canBan,
@@ -104,7 +106,8 @@ public class DefaultPermissions {
                               boolean canCheck,
                               boolean canDrain,
                               boolean canSpawners,
-                              boolean canShield) {
+                              boolean canShield,
+                              boolean canRaidClaim) {
         this.ban = canBan;
         this.build = canBuild;
         this.destroy = canDestory;
@@ -135,6 +138,7 @@ public class DefaultPermissions {
         this.drain = canDrain;
         this.spawner = canSpawners;
         this.shield = canShield;
+        this.raidClaim = canRaidClaim;
     }
 
     @Deprecated
@@ -169,6 +173,7 @@ public class DefaultPermissions {
         else if (Objects.equals(name, "drain")) return this.drain;
         else if (Objects.equals(name, "spawner")) return this.spawner;
         else if (Objects.equals(name, "shield")) return this.shield;
+        else if (Objects.equals(name, "raidclaim")) return this.raidClaim;
         else return false;
     }
 }
