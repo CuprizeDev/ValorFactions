@@ -6,6 +6,7 @@ import com.massivecraft.factions.cmd.CommandContext;
 import com.massivecraft.factions.cmd.CommandRequirements;
 import com.massivecraft.factions.cmd.FCommand;
 import com.massivecraft.factions.struct.Permission;
+import com.massivecraft.factions.zcore.fperms.PermissableAction;
 import com.massivecraft.factions.zcore.frame.fshield.FactionShieldMenuFrame;
 import com.massivecraft.factions.zcore.util.TL;
 
@@ -20,10 +21,10 @@ public class CmdShield extends FCommand {
         this.aliases.addAll(Aliases.shield);
 
         this.requirements = new CommandRequirements.Builder(Permission.SHIELD)
+                .withAction(PermissableAction.SHIELD)
                 .playerOnly()
                 .memberOnly()
                 .build();
-
     }
 
     @Override
