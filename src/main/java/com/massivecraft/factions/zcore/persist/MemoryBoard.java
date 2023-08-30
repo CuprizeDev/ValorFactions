@@ -17,11 +17,14 @@ import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.event.HoverEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 import java.util.*;
 import java.util.Map.Entry;
+
+import static com.massivecraft.factions.cmd.Aliases.location;
 
 
 public abstract class MemoryBoard extends Board {
@@ -53,7 +56,6 @@ public abstract class MemoryBoard extends Board {
 
         flocationIds.put(flocation, id);
     }
-
     public void setFactionAt(Faction faction, FLocation flocation) {
         setIdAt(faction.getId(), flocation);
     }
@@ -112,6 +114,7 @@ public abstract class MemoryBoard extends Board {
             faction.clearAllClaimOwnership();
             faction.clearWarps();
             faction.clearSpawnerChunks();
+            faction.clearRaidClaims();
         }
         clean(factionId);
     }
@@ -316,7 +319,37 @@ public abstract class MemoryBoard extends Board {
                     );
                     continue;
                 }
+
                 Relation relation = fPlayer.getRelationTo(factionFound);
+
+                if (fPlayer.getFactionId().equals(factionFound.getId()) || relation.isAtLeast(Relation.ALLY) || (Conf.showNeutralFactionsOnMap && relation == Relation.NEUTRAL) || (Conf.showEnemyFactionsOnMap && relation == Relation.ENEMY) || (Conf.showTrucesFactionsOnMap && relation == Relation.TRUCE)) {
+                    int incremented = ++charIdx;
+                    char assigned = territories.computeIfAbsent(factionFound.getTag(), c -> Conf.mapKeyChrs[(incremented) % Conf.mapKeyChrs.length]);
+
+                    if (Conf.userRaidClaimSystem && factionFound.getRaidClaims().contains(found.toFastChunk())) {
+                        row.append(
+                                Component.text(assigned)
+                                        .color(TextUtil.kyoriColor(Conf.raidClaimColor))
+                                        .hoverEvent(
+                                                HoverEvent.showText(Component.text(toolTip(factionFound, fPlayer) + CC.Reset + CC.DarkRed + " " + Conf.raidClaimString)))
+                                        .clickEvent(
+                                                ClickEvent.runCommand("/f show " + factionFound.getTag())
+                                        )
+                        );
+                    } else {
+                        row.append(
+                                Component.text(assigned)
+                                        .color(TextUtil.kyoriColor(factionFound.getColorTo(fPlayer.getFaction())))
+                                        .hoverEvent(
+                                                HoverEvent.showText(Component.text(toolTip(factionFound, fPlayer))))
+                                        .clickEvent(
+                                                ClickEvent.runCommand("/f show " + factionFound.getTag())
+                                        )
+                        );
+                    }
+                    continue;
+                }
+
                 if (fPlayer.getFactionId().equals(factionFound.getId()) || relation.isAtLeast(Relation.ALLY) || (Conf.showNeutralFactionsOnMap && relation == Relation.NEUTRAL) || (Conf.showEnemyFactionsOnMap && relation == Relation.ENEMY) || (Conf.showTrucesFactionsOnMap && relation == Relation.TRUCE)) {
                     int incremented = ++charIdx;
                     char assigned = territories.computeIfAbsent(factionFound.getTag(), c -> Conf.mapKeyChrs[(incremented) % Conf.mapKeyChrs.length]);
@@ -345,6 +378,7 @@ public abstract class MemoryBoard extends Board {
                     }
                     continue;
                 }
+
                 row.append(
                         Component.text("-")
                                 .color(TextUtil.kyoriColor(ChatColor.GRAY))
