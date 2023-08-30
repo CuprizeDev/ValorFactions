@@ -37,6 +37,7 @@ import com.massivecraft.factions.zcore.file.impl.FileManager;
 import com.massivecraft.factions.zcore.fperms.Access;
 import com.massivecraft.factions.zcore.fperms.Permissable;
 import com.massivecraft.factions.zcore.fperms.PermissableAction;
+import com.massivecraft.factions.zcore.frame.fshield.ShieldListener;
 import com.massivecraft.factions.zcore.frame.fupgrades.UpgradesListener;
 import com.massivecraft.factions.zcore.util.ShutdownParameter;
 import com.massivecraft.factions.zcore.util.StartupParameter;
@@ -202,7 +203,8 @@ public class FactionsPlugin extends MPlugin {
                     new MissionHandler(this),
                     new FChestListener(),
                     new MenuListener(),
-                    new AntiChestListener()
+                    new AntiChestListener(),
+                    new ShieldListener()
             })
                 Bukkit.getPluginManager().registerEvents(eventListener, this);
 
