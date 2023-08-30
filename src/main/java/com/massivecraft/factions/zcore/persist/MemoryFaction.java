@@ -18,7 +18,6 @@ import com.massivecraft.factions.zcore.fperms.Access;
 import com.massivecraft.factions.zcore.fperms.DefaultPermissions;
 import com.massivecraft.factions.zcore.fperms.Permissable;
 import com.massivecraft.factions.zcore.fperms.PermissableAction;
-import com.massivecraft.factions.zcore.frame.fupgrades.UpgradeManager;
 import com.massivecraft.factions.zcore.util.TL;
 import com.massivecraft.factions.zcore.util.TextUtil;
 import org.bukkit.Bukkit;
@@ -34,6 +33,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 
 public abstract class MemoryFaction implements Faction, EconomyParticipator {
+
     public HashMap<Integer, String> rules = new HashMap<>();
     public int tnt;
     public Location checkpoint;
@@ -86,8 +86,19 @@ public abstract class MemoryFaction implements Faction, EconomyParticipator {
     private List<String> completedMissions;
     private int allowedSpawnerChunks;
     private Set<FastChunk> spawnerChunks;
+
+    /*
+    Raid Claims
+     */
+
+    private int allowedRaidClaims;
+    private Set<FastChunk> raidClaims;
+
+
     private boolean protectedfac = true;
     private boolean cloaked;
+    private int shield;
+    public long lastSetShieldTime;
 
 
     // -------------------------------------------- //
@@ -120,7 +131,11 @@ public abstract class MemoryFaction implements Faction, EconomyParticipator {
         this.completedMissions = new ArrayList<>();
         allowedSpawnerChunks = Conf.allowedSpawnerChunks;
         spawnerChunks = new HashSet<>();
+        allowedRaidClaims = Conf.allowedRaidClaims;
+        raidClaims = new HashSet<>();
         cloaked = false;
+        this.shield = -1;
+        this.lastSetShieldTime = -1;
         resetPerms(); // Reset on new Faction so it has default values.
     }
 
@@ -154,6 +169,8 @@ public abstract class MemoryFaction implements Faction, EconomyParticipator {
         this.checks = new ConcurrentHashMap<>();
         allowedSpawnerChunks = Conf.allowedSpawnerChunks;
         spawnerChunks = new HashSet<>();
+        allowedRaidClaims = Conf.allowedRaidClaims;
+        raidClaims = new HashSet<>();
         this.playerWallCheckCount = new ConcurrentHashMap<>();
         this.playerBufferCheckCount = new ConcurrentHashMap<>();
         resetPerms(); // Reset on new Faction so it has default values.
@@ -198,6 +215,34 @@ public abstract class MemoryFaction implements Faction, EconomyParticipator {
 
     public void setSpawnerChunks(Set<FastChunk> spawnerChunks) {
         this.spawnerChunks = spawnerChunks;
+    }
+
+    /*
+    Raid Claims
+     */
+
+    public int getRaidClaimCount() {
+        return this.raidClaims.size();
+    }
+
+    public void clearRaidClaims() {
+        this.raidClaims.clear();
+    }
+
+    public int getAllowedRaidClaims() {
+        return this.allowedRaidClaims;
+    }
+
+    public void setAllowedRaidClaims(int chunks) {
+        this.allowedRaidClaims = chunks;
+    }
+
+    public Set<FastChunk> getRaidClaims() {
+        return this.raidClaims;
+    }
+
+    public void setRaidClaims(Set<FastChunk> raidClaims) {
+        this.raidClaims = raidClaims;
     }
 
     public int getPoints() {
@@ -281,6 +326,22 @@ public abstract class MemoryFaction implements Faction, EconomyParticipator {
 
     public void paypalSet(String paypal) {
         this.paypal = paypal;
+    }
+
+    public void setShield(int time) {
+        this.shield = time;
+    }
+
+    public int getShield() {
+        return this.shield;
+    }
+
+    public long getSetShieldDate() {
+        return this.lastSetShieldTime;
+    }
+
+    public void setShieldDate(int time) {
+        this.lastSetShieldTime = time;
     }
 
     public boolean hasWarpPassword(String warp) {
