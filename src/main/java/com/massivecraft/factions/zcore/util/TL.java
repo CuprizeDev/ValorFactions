@@ -28,6 +28,7 @@ import java.text.SimpleDateFormat;
  * changes.
  */
 public enum TL {
+
     /**
      * Translation meta
      */
@@ -68,6 +69,14 @@ public enum TL {
      * Command translations
      */
     COMMAND_USEAGE_TEMPLATE_COLOR("&c"),
+
+
+    /**
+     * Faction Shield Messages
+     */
+
+    COMMAND_SHIELD_COOLDOWN("&cYou must wait 24 hours to change your shield after setting it!"),
+    COMMAND_SHIELD_SET("&aYou have set your faction shield to %start%-%end%"),
 
     /**
      * Messsges for /f help
@@ -505,6 +514,12 @@ public enum TL {
     COMMAND_SPAWNERCHUNK_PAST_LIMIT("&c&l[!] &cYou have exceeded your max spawnerchunk limit! &7Limit: &f%1$s"),
     SPAWNER_CHUNK_UNCLAIMED("&aYou have unclaimed a spawnerchunk!"),
     COMMAND_SPAWNERCHUNK_DESCRIPTION("Claim a spawnerchunk"),
+
+    COMMAND_RAIDCHUNK_CLAIM_SUCCESSFUL("&a[!] &7You have successfully claimed a &4raid claim &7for your faction."),
+    COMMAND_RAIDCHUNK_ALREADY_CHUNK("&c&l[!] &7This chunk is already a raid claim!"),
+    COMMAND_RAIDCHUNK_PAST_LIMIT("&c&l[!] &cYou have exceeded your max raid claim limit! &7Limit: &f%1$s"),
+    COMMAND_RAIDCHUNK_UNCLAIMED("&aYou have unclaimed a raid claim!"),
+    COMMAND_RAIDCHUNK_DESCRIPTION("Claim a raid claim!"),
 
     COMMAND_HOME_DISABLED("&c&l[!]&7 Sorry, Faction homes are &cdisabled on this server."),
     COMMAND_HOME_TELEPORTDISABLED("&c&l[!]&7 Sorry, the ability to &cteleport &7to Faction homes is &cdisabled &7on this server."),
